@@ -23,10 +23,13 @@ class App extends React.Component {
     })
   }
   comparing=(e)=>{
+    e.preventDefault();
     if(this.state.name === this.state.compared){
+
       alert("parehas")
     }
     else{
+      e.preventDefault();
       alert("diparehas")
     }
   }
