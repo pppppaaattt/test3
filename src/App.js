@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Login from './Login';
 import  { Redirect } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 class App extends React.Component {
    
@@ -12,7 +13,10 @@ class App extends React.Component {
     passWord:'',
     comparePassWord: '',
     title: 'Welcome to SXI',
-    error: ''
+    error: '',
+    Redirect: false,
+    test:false
+    
   }
   
 
@@ -29,9 +33,7 @@ class App extends React.Component {
 
   changePage = (e)=>{
     e.preventDefault();
-    if(this.state.Redirect){
-      return <Login/>
-    }
+    
   }
   setRedirect =(e)=>{
     e.preventDefault();
@@ -42,8 +44,19 @@ class App extends React.Component {
   }
 
   testingRedirect=(e)=>{
-    e.preventDefault();
-    
+     e.preventDefault();
+  //   this.setState({
+  //     Redirect:true
+  //   })
+  //   if(this.state.Redirect){
+  //     // this.setState({
+  //     //   test:true
+  //     // })
+  //     return console.log("gumana")
+  // }
+  // else return null
+
+      return <Link to ={'/Login'}>Login</Link>
 
   }
 
@@ -94,7 +107,8 @@ class App extends React.Component {
           </div> 
         </div>
           <div  className="btnDes">
-          <button className="btnbtn" onClick={this.comparing}>Enter</button>
+          <button className="btnbtn" >Enter</button>
+          
           </div>
       </div>
       <div>
