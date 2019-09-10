@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Login from './Login';
+import  { Redirect } from 'react-router-dom'
 
 class App extends React.Component {
    
@@ -9,8 +11,10 @@ class App extends React.Component {
   state = {
     passWord:'',
     comparePassWord: '',
-    title: 'Welcome to SXI'
+    title: 'Welcome to SXI',
+    Redirect:false
   }
+  
 
 
   getName = (e)=>{
@@ -22,6 +26,27 @@ class App extends React.Component {
     this.setState({
       comparePassWord:e.target.value})
   }
+
+  changePage = (e)=>{
+    e.preventDefault();
+    if(this.state.Redirect){
+      return <Login/>
+    }
+  }
+  setRedirect =(e)=>{
+    e.preventDefault();
+    this.setState({
+      Redirect:true
+    })
+
+  }
+
+  testingRedirect=(e)=>{
+    e.preventDefault();
+    
+
+  }
+
 
   comparing=(e)=>{
     e.preventDefault();
@@ -39,7 +64,13 @@ class App extends React.Component {
 
   }
 
+  
+
   render(){
+
+    
+
+
     return(
   
     <form className="bgForm">
@@ -56,7 +87,7 @@ class App extends React.Component {
           </div> 
 
           <div>
-          <button onClick={this.comparing}>Compare</button>
+          <button onClick={this.testingRedirect}>Compare</button>
           </div>
           
       </div>
@@ -71,5 +102,6 @@ class App extends React.Component {
      
   
 }
+
 
 export default App;
