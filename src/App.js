@@ -14,7 +14,7 @@ class App extends React.Component {
   handleChange = (e)=>{
 
     this.setState({name:e.target.value})
-    //console.log(this.state.name)
+    
   }
 
   parehas = (e)=> {
