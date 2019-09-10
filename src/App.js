@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends React.Component {
-
+   
+  
 
   state = {
     name:'',
@@ -38,7 +39,13 @@ class App extends React.Component {
     return(
     <form>
       <div>
-        <input type="text" onChange={this.handleChange}/>Enter Email
+        <div>
+        <input id="pass" type="text" />Enter Password
+        </div>
+        <div>
+        <input type="text"  />Value
+        </div>
+        <button type="Submit">  Submit</button>
       </div>
       <div>
         <input type="text" onChange={this.parehas}/>Confirm
