@@ -3,8 +3,19 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends React.Component {
-  return 
-   
+
+  render(){
+    return(
+      <div>
+        <input type="text" />Enter Email
+      </div>
+
+    )
+
+
+  }
+  
+
      
   
 }
