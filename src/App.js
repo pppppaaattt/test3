@@ -7,25 +7,24 @@ class App extends React.Component {
   
 
   state = {
-    name:'',
-    compared: ''
+    passWord:'',
+    comparePassWord: ''
   }
 
 
-  handleChange = (e)=>{
-
-    this.setState({name:e.target.value})
-    
-  }
-
-  parehas = (e)=> {
+  getName = (e)=>{
     this.setState({
-      compared:e.target.value
-    })
+      passWord:e.target.value}) 
   }
+
+  getCompared = (e)=> {
+    this.setState({
+      comparePassWord:e.target.value})
+  }
+
   comparing=(e)=>{
     e.preventDefault();
-    if(this.state.name === this.state.compared){
+    if(this.state.passWord === this.state.comparePassWord){
 
       alert("parehas")
     }
@@ -40,18 +39,14 @@ class App extends React.Component {
     <form>
       <div>
         <div>
-        <input id="pass" type="text" />Enter Password
+        <input id="pass" type="text" value={this.state.name} onChange={this.getName}/>Enter Password
         </div>
         <div>
-        <input type="text"  />Value
-        </div>
-        <button type="Submit">  Submit</button>
-      </div>
-      <div>
-        <input type="text" onChange={this.parehas}/>Confirm
-      </div>
-      <div>
+        <input type="text" value={this.state.compared} onChange={this.getCompared}/>Compare Password
+        </div> 
+        <div>
         <button onClick={this.comparing}>Compare</button>
+      </div>
       </div>
     </form>
       
