@@ -8,13 +8,14 @@ class App extends React.Component {
 
   state = {
     passWord:'',
-    comparePassWord: ''
+    comparePassWord: '',
+    title: 'Welcome to SXI'
   }
 
 
   getName = (e)=>{
     this.setState({
-      passWord:e.target.value}) 
+      passWord:e.target.value})  
   }
 
   getCompared = (e)=> {
@@ -24,32 +25,43 @@ class App extends React.Component {
 
   comparing=(e)=>{
     e.preventDefault();
-    if(this.state.passWord === this.state.comparePassWord){
 
-      alert("parehas")
+    if((this.state.passWord==='') && (this.state.comparePassWord==='')){
+      alert("Error: Please input password to both fields to compare")
     }
-    else{
-      e.preventDefault();
-      alert("diparehas")
+    else if(this.state.passWord === this.state.comparePassWord){
+
+      alert("Success: The password is the same")
     }
+    else {
+      alert("Error: The password is not the same")
+    }
+
   }
 
   render(){
     return(
-    <form>
-      <div>
+  
+    <form className="bgForm">
+      <div className="itemsInside">
         <div>
-        <input id="pass" type="text" value={this.state.name} onChange={this.getName}/>Enter Password
+        <h1>{this.state.title}</h1>
         </div>
-        <div>
-        <input type="text" value={this.state.compared} onChange={this.getCompared}/>Compare Password
-        </div> 
-        <div>
-        <button onClick={this.comparing}>Compare</button>
-      </div>
+          <div>
+          <input id="pass" type="text" value={this.state.name} onChange={this.getName}/>Enter Password
+          </div>
+
+          <div>
+          <input type="text" value={this.state.compared} onChange={this.getCompared}/>Compare Password
+          </div> 
+
+          <div>
+          <button onClick={this.comparing}>Compare</button>
+          </div>
+          
       </div>
     </form>
-      
+
     )
 
 
