@@ -8,6 +8,27 @@ class App extends React.Component {
     passWord: ''
 
   }
+<<<<<<< HEAD
+=======
+
+  parehas = (e)=> {
+    this.setState({
+      compared:e.target.value
+    })
+  }
+  comparing=(e)=>{
+    e.preventDefault();
+    if(this.state.name === this.state.compared){
+
+      alert("parehas")
+    }
+    else{
+      e.preventDefault();
+      alert("diparehas")
+    }
+  }
+
+>>>>>>> bc502f77f46b3beb2bc26690e7778494fb4044bb
   render(){
     return(
     <form>
