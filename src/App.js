@@ -9,7 +9,8 @@ class App extends React.Component {
   state = {
     passWord:'',
     comparePassWord: '',
-    title: 'Welcome to SXI'
+    title: 'Welcome to SXI',
+    error: ''
   }
 
 
@@ -27,14 +28,19 @@ class App extends React.Component {
     e.preventDefault();
 
     if((this.state.passWord==='') && (this.state.comparePassWord==='')){
-      alert("Error: Please input password to both fields to compare")
+      this.setState({
+        error:'Error: Please input password to both fields to compare'})
     }
     else if(this.state.passWord === this.state.comparePassWord){
 
-      alert("Success: The password is the same")
+      this.setState({
+        error: 'Success: The password is the same'})
+       
+      
     }
     else {
-      alert("Error: The password is not the same")
+      this.setState({
+        error: 'Error: The password is not the same'})
     }
 
   }
@@ -45,21 +51,25 @@ class App extends React.Component {
     <form className="bgForm">
       <div className="itemsInside">
         <div>
-        <h1>{this.state.title}</h1>
+        < p className="titleDes">{this.state.title}</p>
+       
         </div>
+        <div className="middleDes">
           <div>
-          <input id="pass" type="text" value={this.state.name} onChange={this.getName}/>Enter Password
+          <input className="inputPass" type="text" value={this.state.name} onChange={this.getName} placeholder="Enter Password"/> 
           </div>
 
           <div>
-          <input type="text" value={this.state.compared} onChange={this.getCompared}/>Compare Password
+          <input className="inputComPass" type="text" value={this.state.compared} onChange={this.getCompared} placeholder="Compare Password"/> 
           </div> 
-
-          <div>
-          <button onClick={this.comparing}>Compare</button>
+        </div>
+          <div  className="btnDes">
+          <button className="btnbtn" onClick={this.comparing}>Enter</button>
           </div>
-          
       </div>
+      <div>
+          <p className="errorStyle">{this.state.error}</p>
+          </div>
     </form>
 
     )
