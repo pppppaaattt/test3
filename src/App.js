@@ -10,6 +10,7 @@ class App extends React.Component {
   }
   render(){
     return(
+    <form>
       <div>
         <div>
         <input id="pass" type="text" />Enter Password
@@ -19,7 +20,14 @@ class App extends React.Component {
         </div>
         <button type="Submit">  Submit</button>
       </div>
-
+      <div>
+        <input type="text" onChange={this.parehas}/>Confirm
+      </div>
+      <div>
+        <button onClick={this.comparing}>Compare</button>
+      </div>
+    </form>
+      
     )
 
 
